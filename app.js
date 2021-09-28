@@ -8,6 +8,7 @@ require('dotenv').config();
  * Middleware
  */
 app.use(express.json());
+app.use(express.static('./public'));
 app.use('/api/tasks',tasks);
 
 const port=5000;
