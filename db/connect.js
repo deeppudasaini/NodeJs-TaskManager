@@ -1,9 +1,12 @@
 const mongoose =require('mongoose');
 
-const connectionString='mongodb+srv://deep:deep@cluster0.cnerh.mongodb.net/Task_Manager?retryWrites=true&w=majority'
 
-mongoose.connect(connectionString,{useNewUrlParser: true, useUnifiedTopology: true}).then(()=>{
-console.log('connected to database');
-}).catch(()=>{
-    console.log('error in connection');
-})
+
+const connectDb=(url)=>{
+
+return mongoose.connect(url,{useNewUrlParser: true, useUnifiedTopology: true,
+    useCreateIndex: true, useFindAndModify: false
+});
+}
+
+module.exports=connectDb;

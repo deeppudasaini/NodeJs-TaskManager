@@ -1,9 +1,11 @@
-
+const Task=require('../models/Task');
 const getAllTasks=(req,res)=>{
     res.json('get all tasks')
 }
-const createTasks=(req,res)=>{
-    res.json(req.body);
+const createTasks=async (req,res)=>{
+    
+    const task=await Task.create(req.body);
+    res.status(201).json({task});
 }
 const getSingleTask=(req,res)=>{
     res.json({
