@@ -3,12 +3,13 @@ const express= require('express');
 const app= express();
 const tasks=require('./routes/tasks');
 const connectDb= require('./db/connect.js');
+const notFound= require('./middlewares/404notfound');
 require('dotenv').config();
 /**
  * Middleware
  */
 app.use(express.json());
-app.use(express.static('./public'));
+app.use(notFound);
 app.use('/api/tasks',tasks);
 
 const port=5000;
